@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My first Webpages</title>
+    <style>
+        body {
+            text-align: center; 
+        }
+        button {
+            background-color: black;
+            color: white;
+        }
+        
+    </style>
+    <link rel="icon" type="image/png" href="pro.png">
+</head>
+<body>
+    <h1>Email Spam Classifier</h1>
+    <form method="post" action = "/predict">
+        <textarea name="email-content" placeholder="Enter your email...." 
+        rows="15" cols="25" value="{{text}}">{{email_text}}</textarea>
+        
+        <div>
+            <button>Check Spam</button>
+            <!-- <br><br>
+            <input type="submit" value="submit"></input> -->
+            <a href="/">Reset</a>
+        </div>
+    </form>
+
+    <!-- We can add python code using Jinga template -->
+    {% if predictions == 1%}
+        <h2 style="color: red">SPAM</h2>
+    {% elif predictions == -1%}
+       <h2 style="color:green">Not SPAM</h2>
+    {% endif %}
+</body>
+</html>
